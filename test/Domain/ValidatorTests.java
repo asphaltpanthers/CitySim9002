@@ -20,6 +20,6 @@ public class ValidatorTests {
     
     @Test
     public void IfOneArgumentIsNotProvidedReturnFalse() {
-        Assert.assertFalse(Validator.validateNumberOfArguments(new String[] { "1", "2" }));
+        Assert.assertFalse(Validator.validateNumberOfArguments(new String[] { "1" }));
     }
 }
