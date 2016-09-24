@@ -1,5 +1,5 @@
 <project name="test">
 	<target name="test">
-	
+		<import file="CitySim9002\build.xml" />
 	</target>
 </project>
