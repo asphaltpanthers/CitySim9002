@@ -1,3 +1,5 @@
 <project name="test">
+	<target name="test">
 	
+	</target>
 </project>
