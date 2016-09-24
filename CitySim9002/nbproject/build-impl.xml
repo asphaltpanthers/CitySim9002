@@ -42,7 +42,7 @@ is divided into following sections:
         <property file="nbproject/private/configs/${config}.properties"/>
         <property file="nbproject/private/private.properties"/>
     </target>
-    <target depends="-pre-init,-init-private" name="-init-libraries">
+    <target depends="-pre-init,-init-private,-init-private-libraries" name="-init-libraries">
         <loadproperties encoding="ISO-8859-1" srcfile="${libraries.path}">
             <filterchain>
                 <replacestring from="$${base}" to="${libraries.dir}"/>
