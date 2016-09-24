@@ -14,12 +14,13 @@ import Domain.Validator;
 public class CitySim9002 {
     public static String errorMessage = "Please enter one integer argument, seed";
     
-    public static void main(String[] args) {
+    public static int main(String[] args) {
         if (Validator.validateArguments(args)) {
-            
+            return 0;
         }
         else {
             System.out.println(errorMessage);
+            return -1;
         }
     }
 }
