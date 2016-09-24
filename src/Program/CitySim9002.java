@@ -5,12 +5,21 @@
  */
 package Program;
 
+import Domain.Validator;
+
 /**
  *
  * @author AsphaltPanthers
  */
 public class CitySim9002 {
+    public static String errorMessage = "Please enter one integer argument, seed";
+    
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        if (Validator.validateArguments(args)) {
+            
+        }
+        else {
+            System.out.println(errorMessage);
+        }
     }
 }
