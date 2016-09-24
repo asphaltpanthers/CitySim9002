@@ -9,7 +9,7 @@ package Program;
  *
  * @author AsphaltPanthers
  */
-public class Main {
+public class CitySim9002 {
     public static void main(String[] args) {
         
     }
