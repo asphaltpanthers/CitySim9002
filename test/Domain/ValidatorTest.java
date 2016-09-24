@@ -12,7 +12,7 @@ import org.junit.Test;
  *
  * @author AsphaltPanthers
  */
-public class ValidatorTests {
+public class ValidatorTest {
     @Test
     public void IfOneArgumentIsProvidedReturnTrue() {
         Assert.assertTrue(Validator.validateNumberOfArguments(new String[] { "1" }));
