@@ -15,7 +15,7 @@ public class CitySim9002 {
     public static String errorMessage = "Please enter one integer argument, seed";
     
     public static int main(String[] args) {
-        if (Validator.validateArguments(args)) {
+        if (new Validator().validateArguments(args)) {
             return 0;
         }
         else {

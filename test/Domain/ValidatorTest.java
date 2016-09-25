@@ -14,12 +14,22 @@ import org.junit.Test;
  */
 public class ValidatorTest {
     @Test
-    public void IfOneArgumentIsProvidedReturnTrue() {
-        Assert.assertTrue(Validator.validateNumberOfArguments(new String[] { "1" }));
+    public void ifOneArgumentIsProvidedReturnTrue() {
+        Assert.assertTrue(new Validator().validateNumberOfArguments(new String[] { "1" }));
     }
     
     @Test
-    public void IfOneArgumentIsNotProvidedReturnFalse() {
-        Assert.assertFalse(Validator.validateNumberOfArguments(new String[] { "1", "2" }));
+    public void ifOneArgumentIsNotProvidedReturnFalse() {
+        Assert.assertFalse(new Validator().validateNumberOfArguments(new String[] { "1", "2" }));
+    }
+    
+    @Test
+    public void ifArgumentIsAnIntegerReturnTrue() {
+        Assert.assertTrue(new Validator().validateArgumentType(new String[] { "1" }));
+    }
+    
+    @Test
+    public void ifArgumentIsNotAnIntegerReturnFalse() {
+        Assert.assertFalse(new Validator().validateArgumentType(new String[] { "test" }));
     }
 }
