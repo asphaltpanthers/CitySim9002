@@ -5,21 +5,35 @@
  */
 package Program;
 
+import Domain.ArgumentHelper;
+import Domain.StringHelper;
 import Domain.Validator;
+import Domain.VisitorHelper;
+import Entity.Visitor;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author AsphaltPanthers
  */
 public class CitySim9002 {
-    public static String errorMessage = "Please enter one integer argument, seed";
     
     public static int main(String[] args) {
         if (new Validator().validateArguments(args)) {
+            int seed = ArgumentHelper.getSeed(args);
+            System.out.println(StringHelper.getWelcomeString(seed));
+            
+            Random generator = new Random(seed);
+            
+            ArrayList<Visitor> visitors = new VisitorHelper().initVisitors(generator);
+            for (Visitor visitor : visitors) {
+                
+            }
             return 0;
         }
         else {
-            System.out.println(errorMessage);
+            System.out.println(StringHelper.getErrorString());
             return -1;
         }
     }
