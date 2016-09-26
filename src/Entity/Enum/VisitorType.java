@@ -10,5 +10,13 @@ package Entity.Enum;
  * @author AsphaltPanthers
  */
 public enum VisitorType {
-    STUDENT, PROFESSOR, BUSINESS_PERSON, BLOGGER
+    STUDENT("Student"),
+    PROFESSOR("Professor"),
+    BUSINESS_PERSON("Business Person"),
+    BLOGGER("Blogger");
+    
+    public String value;
+    VisitorType(String value) {
+        this.value = value;
+    }
 }

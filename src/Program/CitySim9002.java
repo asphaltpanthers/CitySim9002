@@ -18,8 +18,7 @@ import java.util.Random;
  * @author AsphaltPanthers
  */
 public class CitySim9002 {
-    
-    public static int main(String[] args) {
+    public static void main(String[] args) {
         if (new Validator().validateArguments(args)) {
             int seed = ArgumentHelper.getSeed(args);
             System.out.println(StringHelper.getWelcomeString(seed));
@@ -27,14 +26,12 @@ public class CitySim9002 {
             Random generator = new Random(seed);
             
             ArrayList<Visitor> visitors = new VisitorHelper().initVisitors(generator);
-            for (Visitor visitor : visitors) {
-                
-            }
-            return 0;
+            visitors.stream().forEach((Visitor visitor) -> {
+                visitor.tour(generator).stream().forEach(System.out::println);
+            });
         }
         else {
             System.out.println(StringHelper.getErrorString());
-            return -1;
         }
     }
 }

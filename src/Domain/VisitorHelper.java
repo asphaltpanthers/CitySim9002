@@ -19,7 +19,7 @@ public class VisitorHelper {
         ArrayList<Visitor> visitors = new ArrayList<>();
         
         for (int i = 0; i < 5; i++) {
-            visitors.add(new Visitor(getRandomVisitorType(generator)));
+            visitors.add(new Visitor(i + 1, getRandomVisitorType(generator)));
         }
         
         return visitors;

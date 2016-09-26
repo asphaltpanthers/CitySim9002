@@ -5,6 +5,8 @@
  */
 package Domain;
 
+import Entity.Location;
+
 /**
  *
  * @author AsphaltPanthers
@@ -16,5 +18,12 @@ public class StringHelper {
     
     public static String getWelcomeString(int seed) {
         return "Welcome to CitySim! Your seed is " + seed + ".";
+    }
+    
+    public static String getAppraisalString(int num, Location location, boolean liked) {
+        if (liked) {
+            return "Visitor " + num + " did like " + location.name.value + ".";
+        }
+        return "Visitor " + num + " did not like " + location.name.value + ".";
     }
 }

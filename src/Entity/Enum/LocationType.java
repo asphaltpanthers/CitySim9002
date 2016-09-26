@@ -10,5 +10,14 @@ package Entity.Enum;
  * @author AsphaltPanthers
  */
 public enum LocationType {
-    THE_CATHEDRAL_OF_LEARNING, SQUIRREL_HILL, THE_POINT, DOWNTOWN
+    THE_CATHEDRAL_OF_LEARNING("The Cathedral of Learning"),
+    SQUIRREL_HILL("Squirrel Hill"),
+    THE_POINT("The Point"),
+    DOWNTOWN("Downtown"),
+    LEAVE("");
+    
+    public String value;
+    LocationType(String value) {
+        this.value = value;
+    }
 }
