@@ -5,7 +5,6 @@
  */
 package Entity;
 
-import Domain.StringHelper;
 import Entity.Enum.LocationType;
 import Entity.Enum.VisitorType;
 import java.util.ArrayList;
@@ -16,12 +15,14 @@ import java.util.Random;
  * @author AsphaltPanthers
  */
 public class Visitor {
-    public int num;
-    public VisitorType type;
+    private final int num;
+    private final VisitorType type;
+    private final City city;
     
     public Visitor(int num, VisitorType type) {
         this.num = num;
         this.type = type;
+        this.city = new City();
     }
     
     public ArrayList<String> tour(Random generator) {
@@ -29,17 +30,16 @@ public class Visitor {
         
         visits.add("Visitor " + num + " is a " + type.value + ".");
         
-        City city = new City();
         boolean firstIteration = true;
         do {
             Location visiting = city.getRandomLocation(generator);
-            if (visiting.name == LocationType.LEAVE) {
+            if (visiting.getLocationType() == LocationType.LEAVE) {
                 visits.add("Visitor " + num + " has left the city.");
                 break;
             }
             else {
-                visits.add("Visitor " + num + " is going to " + visiting.name.value + "!");
-                visits.add(appraiseLocation(visiting));
+                visits.add("Visitor " + num + " is going to " + visiting.getLocationType().value + "!");
+                visits.add(getAppraisalString(visiting, appraiseLocation(visiting)));
             }
             if (firstIteration) {
                 city.addLocation(new Location(LocationType.LEAVE));
@@ -52,31 +52,31 @@ public class Visitor {
         return visits;
     }
     
-    public String appraiseLocation(Location location) {
+    public boolean appraiseLocation(Location location) {
         if (type == VisitorType.STUDENT) {
-            if (location.name == LocationType.SQUIRREL_HILL ||
-                    location.name == LocationType.DOWNTOWN ||
-                    location.name == LocationType.THE_POINT) {
-                return StringHelper.getAppraisalString(num, location, true);
-            }
-            else {
-                return StringHelper.getAppraisalString(num, location, false);
-            }
+            return location.getLocationType() == LocationType.SQUIRREL_HILL ||
+                    location.getLocationType() == LocationType.DOWNTOWN ||
+                    location.getLocationType() == LocationType.THE_POINT;
         }
         if (type == VisitorType.BUSINESS_PERSON) {
-            if (location.name == LocationType.SQUIRREL_HILL ||
-                    location.name == LocationType.DOWNTOWN) {
-                return StringHelper.getAppraisalString(num, location, true);
-            }
-            else {
-                return StringHelper.getAppraisalString(num, location, false);
-            }
+            return location.getLocationType() == LocationType.SQUIRREL_HILL ||
+                    location.getLocationType() == LocationType.DOWNTOWN;
         }
-        if (type == VisitorType.PROFESSOR) {
-            return StringHelper.getAppraisalString(num, location, true);
+        return type == VisitorType.PROFESSOR;
+    }
+    
+    public String getAppraisalString(Location location, boolean liked) {
+        if (liked) {
+            return "Visitor " + num + " did like " + location.getLocationType().value + "!";
         }
-        else {
-            return StringHelper.getAppraisalString(num, location, false);
-        }
+        return "Visitor " + num + " did not like " + location.getLocationType().value + ".";
+    }
+    
+    public VisitorType getVisitorType() {
+        return type;
+    }
+    
+    public City getCity() {
+        return city;
     }
 }

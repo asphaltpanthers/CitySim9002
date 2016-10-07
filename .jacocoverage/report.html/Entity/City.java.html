@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>City.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CitySim9002&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Entity</a> &gt; <span class="el_source">City.java</span></div><h1>City.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entity;
+
+import Entity.Enum.LocationType;
+import java.util.ArrayList;
+import java.util.Random;
+
+/**
+ *
+ * @author AsphaltPanthers
+ */
+public class City {
+    private final ArrayList&lt;Location&gt; locations;
+    
+<span class="fc" id="L19">    public City() {</span>
+<span class="fc" id="L20">        locations = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc" id="L22">        locations.add(new Location(LocationType.DOWNTOWN));</span>
+<span class="fc" id="L23">        locations.add(new Location(LocationType.SQUIRREL_HILL));</span>
+<span class="fc" id="L24">        locations.add(new Location(LocationType.THE_CATHEDRAL_OF_LEARNING));</span>
+<span class="fc" id="L25">        locations.add(new Location(LocationType.THE_POINT));</span>
+<span class="fc" id="L26">    }</span>
+    
+    public boolean addLocation(Location location) {
+<span class="fc" id="L29">        return locations.add(location);</span>
+    }
+    
+    public Location getRandomLocation(Random generator) {
+<span class="fc" id="L33">        return locations.get(generator.nextInt(locations.size()));</span>
+    }
+    
+    public ArrayList&lt;Location&gt; getLocations() {
+<span class="fc" id="L37">        return locations;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

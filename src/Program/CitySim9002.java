@@ -6,7 +6,6 @@
 package Program;
 
 import Domain.ArgumentHelper;
-import Domain.StringHelper;
 import Domain.Validator;
 import Domain.VisitorHelper;
 import Entity.Visitor;
@@ -17,11 +16,11 @@ import java.util.Random;
  *
  * @author AsphaltPanthers
  */
-public class CitySim9002 {
+public class CitySim9002 {    
     public static void main(String[] args) {
         if (new Validator().validateArguments(args)) {
             int seed = ArgumentHelper.getSeed(args);
-            System.out.println(StringHelper.getWelcomeString(seed));
+            System.out.println("Welcome to CitySim!  Your seed is " + seed + ".");
             
             Random generator = new Random(seed);
             
@@ -31,7 +30,7 @@ public class CitySim9002 {
             });
         }
         else {
-            System.out.println(StringHelper.getErrorString());
+            System.out.println("Please enter one integer argument, seed");
         }
     }
 }

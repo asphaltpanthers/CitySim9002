@@ -36,7 +36,7 @@ public class VisitorHelperTest {
         when(helper.initVisitors(any(Random.class))).thenCallRealMethod();
         
         helper.initVisitors(new Random(1)).stream().forEach((Visitor visitor) -> {
-            assertEquals(VisitorType.BLOGGER, visitor.type);
+            assertEquals(VisitorType.BLOGGER, visitor.getVisitorType());
         });
     }
     

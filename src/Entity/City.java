@@ -14,7 +14,7 @@ import java.util.Random;
  * @author AsphaltPanthers
  */
 public class City {
-    public ArrayList<Location> locations;
+    private final ArrayList<Location> locations;
     
     public City() {
         locations = new ArrayList<>();
@@ -31,5 +31,9 @@ public class City {
     
     public Location getRandomLocation(Random generator) {
         return locations.get(generator.nextInt(locations.size()));
+    }
+    
+    public ArrayList<Location> getLocations() {
+        return locations;
     }
 }

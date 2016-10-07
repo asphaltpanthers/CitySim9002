@@ -12,9 +12,13 @@ import Entity.Enum.LocationType;
  * @author AsphaltPanthers
  */
 public class Location {
-    public LocationType name;
+    private final LocationType name;
     
     public Location(LocationType name) {
         this.name = name;
+    }
+    
+    public LocationType getLocationType() {
+        return name;
     }
 }
